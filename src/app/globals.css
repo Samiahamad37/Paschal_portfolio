@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-serif), ui-serif, Georgia, serif;
+
+  --color-gold-300: #f3d9a4;
+  --color-gold-400: #e8c27a;
+  --color-gold-500: #d4a24c;
+  --color-gold-600: #b5832f;
+  --color-gold-700: #8a6221;
+  --color-teal-glow: #2dd4bf;
+}
+
+:root {
+  --bg: #f7f5f0;
+  --bg-elev: #ffffff;
+  --fg: #14161c;
+  --muted: #4a5060;
+  --line: rgba(20, 22, 28, 0.1);
+  --glass: rgba(255, 255, 255, 0.7);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0b10;
+  --bg-elev: #12141c;
+  --fg: #f2f0ea;
+  --muted: #a7acb9;
+  --line: rgba(255, 255, 255, 0.09);
+  --glass: rgba(14, 16, 24, 0.62);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: #14161c;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.surface {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+}
+
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--line);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #b5832f 0%, #d4a24c 40%, #0f9f8f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(100deg, #f3d9a4 0%, #e8c27a 40%, #5eead4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bg-accent {
+  background: linear-gradient(120deg, #d4a24c, #e8c27a 55%, #5eead4);
+}
+
+.border-line {
+  border-color: var(--line);
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(127, 127, 127, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 4px;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
