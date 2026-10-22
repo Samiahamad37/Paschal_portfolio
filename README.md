@@ -1,5 +1,8 @@
 # Pascal Jonathan — Portfolio
 
+my first work as the web developer 
+
+
 Modern personal portfolio for **Pascal Jonathan**, Sign Language & Interpretation Director and Military Officer.
 
 Built with **Next.js 16 (App Router)**, **React 19**, **TypeScript**, **Tailwind CSS v4** and **framer-motion**, exported as a fully static site.
